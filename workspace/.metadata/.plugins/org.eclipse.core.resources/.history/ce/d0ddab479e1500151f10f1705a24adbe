@@ -1,0 +1,48 @@
+package ClassesPackage;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Convertor {
+	
+	public void convert(String fileName){
+		BufferedReader br;
+		BufferedWriter bw;
+		String tempLine="";
+	
+		try {
+			br=new BufferedReader(new FileReader(fileName));
+			bw=new BufferedWriter(new FileWriter("consumpro.json"));
+			
+			bw.write("{\"consumer\" :[\n");
+			tempLine=br.readLine();
+			String []heading=tempLine.split(",");
+			
+			tempLine="";
+			while((tempLine=br.readLine())!=null){
+				String []temp=tempLine.split(",");
+				tempLine="{";
+				for(int i=0;i<heading.length;i++){
+					tempLine+="\""+heading[i]+"\":"+temp[i]+"\",";
+				}
+				tempLine+="},\n";
+				bw.write(tempLine);
+			}
+			
+			bw.write("]}");
+			bw.close();
+			br.close();
+			System.out.println("File Successfully Converted.");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

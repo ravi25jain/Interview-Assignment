@@ -1,0 +1,8 @@
+package classesPackage;
+
+public class Subsciber {
+	public Subscriber(){
+		
+	}
+
+}

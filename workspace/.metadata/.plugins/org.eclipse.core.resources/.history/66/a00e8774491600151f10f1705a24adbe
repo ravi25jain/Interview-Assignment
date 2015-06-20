@@ -1,0 +1,53 @@
+package classesPackage;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String tempLine="";
+		JSONParser parser=new JSONParser();
+		JSONArray jarr;
+		JSONObject jobj;
+		List <Consumer>consumerList = new ArrayList<Consumer>();
+		Consumer temp;
+		try {
+//			@SuppressWarnings("resource")
+//			BufferedReader br=new BufferedReader(new FileReader("Files/consumpro.json"));
+
+//			tempLine=br.readLine();
+			
+//			while((tempLine=br.readLine())!=null){
+			
+			Object obj=parser.parse(new FileReader("Files/consumpro.json"));
+			jobj=(JSONObject)obj;
+			jarr=(JSONArray)jobj.get("consumer");
+			
+			for(int i=0;i<jarr.size();i++){
+				jobj=(JSONObject)jarr.get(i);				
+				temp=new Consumer();
+				temp.setDetails(jobj);
+				consumerList.add(temp);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

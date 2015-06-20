@@ -1,0 +1,36 @@
+package classesPackage;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String tempLine;
+		List <Consumer>consumerList = null;
+		Consumer temp;
+		try {
+			@SuppressWarnings("resource")
+			BufferedReader br=new BufferedReader(new FileReader("Files/consumpro.json"));
+			tempLine=br.readLine();
+			
+			while((tempLine=br.readLine())!=null){
+				if(tempLine.length()>2){
+					temp=new Consumer();
+					temp.setDetails(tempLine);
+					consumerList.add(temp);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,32 @@
+package classesPackage;
+
+import java.util.Date;
+
+public class Message {
+	String publisher, msgContent,topic;
+	Date date;
+	public Message(String user,String msg, String subject ){
+		this.publisher=user;
+		this.msgContent=msg;
+		this.topic=subject;
+		this.date=new Date();
+	}
+	
+	public void sendMessage(){
+		MsgRepository msgRepo=new MsgRepository();
+		msgRepo.addMessage(this);
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+	public String getMsgContent() {
+		return msgContent;
+	}
+	public String getTopic() {
+		return topic;
+	}
+	public Date getDate() {
+		return date;
+	}
+}

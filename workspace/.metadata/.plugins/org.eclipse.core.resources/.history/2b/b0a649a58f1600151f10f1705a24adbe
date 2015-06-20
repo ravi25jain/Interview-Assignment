@@ -1,0 +1,14 @@
+package classesPackage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MsgRepository {
+
+	List <Message>msgList= new ArrayList<Message>();
+	
+	public void addMessage(Message message) {
+		msgList.add(message);		
+	}
+
+}

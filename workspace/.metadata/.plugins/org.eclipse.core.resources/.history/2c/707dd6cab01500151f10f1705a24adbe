@@ -1,0 +1,39 @@
+package classesPackage;
+
+public class Consumer {
+	private String id,firstname,lastname,productname,price,quantity,total;
+	
+	public void setDetails(String line){
+		String []temp;
+		temp=line.split(",");
+		this.id=temp[0];
+		this.firstname=temp[1];
+		this.lastname=temp[2];
+		this.productname=temp[3];
+		this.price=temp[4];
+		this.quantity=temp[5];
+		this.total=temp[6];
+		System.out.println(this.firstname);
+	}
+	public String getId() {
+		return id;
+	}
+	public String getFirstname() {
+		return firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public String getProductname() {
+		return productname;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public String getQuantity() {
+		return quantity;
+	}
+	public String getTotal() {
+		return total;
+	}
+}

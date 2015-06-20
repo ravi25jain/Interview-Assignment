@@ -1,0 +1,64 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
+
+public class BoudCompute {
+
+
+	
+	public static void main(String[] args) {
+
+		int x[]=new int[10];
+		int y[]=new int[10];
+		int maxX, maxY, minX, minY;
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
+		try {	
+			System.out.println("Enter 10 x values for the points");
+			for(int i=0;i<10;i++){
+				x[i]=Integer.parseInt(br.readLine());
+			} 
+			
+			System.out.println("Enter 10 y values for the points");
+			for(int i=0;i<10;i++){
+				y[i]=Integer.parseInt(br.readLine());
+			} 
+			
+			maxX=max(x);
+			maxY=max(y);
+			minX=min(x);
+			minY=min(y);
+			
+			
+		}catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	static int max(int []arr){
+		int maximum;
+		maximum=arr[0];
+		for(int i=1;i<arr.length;i++){
+			if(maximum<arr[i]){
+				maximum=arr[i];
+			}
+		}
+		return maximum;
+	}
+
+	static int min(int []arr){
+		int minimum;
+		minimum=arr[0];
+		for(int i=1;i<arr.length;i++){
+			if(minimum>arr[i]){
+				minimum=arr[i];
+			}
+		}
+		return minimum;
+	}
+}

@@ -1,0 +1,21 @@
+package classesPackage;
+
+import java.util.Date;
+
+import javax.annotation.processing.Messager;
+
+public class Message {
+	String publisher, msgContent,topic;
+	Date date;
+	public Message(String user,String msg, String subject ){
+		this.publisher=user;
+		this.msgContent=msg;
+		this.topic=subject;
+		this.date=new Date();
+	}
+	
+	public void sendMessage(){
+		MsgRepository msgRepo=new MsgRepository();
+		msgRepo.addMessage(this);
+	}
+}

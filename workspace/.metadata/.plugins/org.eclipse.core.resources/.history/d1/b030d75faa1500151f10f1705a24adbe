@@ -1,0 +1,21 @@
+package classesPackage;
+
+import java.util.List;
+
+public class Search {
+	public void searchByProduct(List <Consumer>consumerList, String product){
+		for(int i=0;i<consumerList.size();i++){
+			if(product.equals(consumerList.get(i).getProductname())){
+				System.out.println(consumerList.get(i).getFirstname()+" "+consumerList.get(i).getLastname());
+			}
+		}
+	}
+	
+	public void searchByName(List <Consumer>consumerList, String name){
+		for(int i=0;i<consumerList.size();i++){
+			if(name.equals(consumerList.get(i).getLastname())){
+				System.out.println(consumerList.get(i).getProductname());
+			}
+		}
+	}
+}

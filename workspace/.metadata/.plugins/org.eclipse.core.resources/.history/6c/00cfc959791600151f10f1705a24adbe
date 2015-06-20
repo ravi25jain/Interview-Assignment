@@ -1,0 +1,10 @@
+package classesPackage;
+
+public class MsgRepository {
+
+	public void addMessage(Message message) {
+		
+		
+	}
+
+}
